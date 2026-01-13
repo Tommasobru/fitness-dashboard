@@ -36,15 +36,29 @@ export default function TodayWorkoutCard() {
   const plan = workout ? getPlanById(workout.planId) : null;
 
   const handleStartWorkout = () => {
-    if (!workout || !plan) return;
+    // Se c'è un workout programmato, usalo
+    let workoutToUse = workout;
+    let planToUse = plan;
+
+    // Altrimenti, usa il primo workout disponibile come default
+    if (!workoutToUse || !planToUse) {
+      const { getActivePlans } = require("@/lib/mockData");
+      const activePlans = getActivePlans();
+      if (activePlans.length > 0 && activePlans[0].workouts.length > 0) {
+        workoutToUse = activePlans[0].workouts[0];
+        planToUse = activePlans[0];
+      }
+    }
+
+    if (!workoutToUse || !planToUse) return;
 
     // Crea workout specifico basato sulla programmazione
     const activeWorkout: ActiveWorkout = {
       id: `workout-${Date.now()}`,
-      name: workout.name,
-      planName: plan.name,
+      name: workoutToUse.name,
+      planName: planToUse.name,
       startTime: new Date().toISOString(),
-      exercises: (workout.exercises || []).map(ex => ({
+      exercises: (workoutToUse.exercises || []).map(ex => ({
         id: ex.id,
         name: ex.name,
         targetSets: ex.sets,

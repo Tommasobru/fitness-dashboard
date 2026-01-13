@@ -21,22 +21,24 @@ export default function DayCard({
 
   return (
     <div
-      className={`flex flex-col bg-[var(--card-bg)] rounded-xl border-2 transition-all overflow-hidden ${
+      className={`flex flex-col bg-[var(--card-bg)] rounded-xl border-2 transition-all duration-[var(--transition-base)] overflow-hidden ${
         isToday
-          ? "border-[var(--primary)] ring-2 ring-[var(--primary)]/20"
-          : "border-[var(--border)] hover:border-[var(--border-hover)]"
+          ? "border-[var(--primary)] ring-4 ring-[var(--primary)]/20 shadow-lg"
+          : "border-[var(--border)] hover:border-[var(--border-hover)] hover:shadow-md"
       }`}
     >
       {/* Header */}
-      <div className={`px-4 py-3 text-center border-b border-[var(--border)] ${
-        isToday ? "bg-[var(--primary-light)]" : ""
+      <div className={`px-4 py-3 text-center border-b transition-colors duration-[var(--transition-base)] ${
+        isToday
+          ? "bg-[var(--primary-light)] border-[var(--primary)]/30"
+          : "border-[var(--border)]"
       }`}>
-        <p className={`text-xs font-medium uppercase tracking-wide ${
+        <p className={`text-xs font-bold uppercase tracking-wide ${
           isToday ? "text-[var(--primary)]" : "text-[var(--text-muted)]"
         }`}>
           {dayShort}
         </p>
-        <p className={`text-lg font-bold mt-0.5 ${
+        <p className={`text-xl font-extrabold mt-0.5 ${
           isToday ? "text-[var(--primary)]" : "text-[var(--text-primary)]"
         }`}>
           {dayNumber}

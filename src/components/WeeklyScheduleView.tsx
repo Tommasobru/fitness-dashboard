@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import DayCard from "./DayCard";
 import WorkoutSelector from "./WorkoutSelector";
+import CustomSelect from "./CustomSelect";
 import { getActivePlans, getWorkoutsByPlanId } from "@/lib/mockData";
 import {
   getWeekSchedule,
@@ -101,7 +102,7 @@ export default function WeeklyScheduleView() {
         <div className="flex items-center gap-3">
           <button
             onClick={handlePreviousWeek}
-            className="w-9 h-9 rounded-lg bg-[var(--card-bg)] border border-[var(--border)] hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center justify-center transition-colors"
+            className="w-9 h-9 rounded-lg bg-[var(--card-bg)] border border-[var(--border)] hover:bg-[var(--card-bg-hover)] flex items-center justify-center transition-colors duration-[var(--transition-base)]"
             aria-label="Settimana precedente"
           >
             <svg className="w-5 h-5 text-[var(--text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -120,7 +121,7 @@ export default function WeeklyScheduleView() {
 
           <button
             onClick={handleNextWeek}
-            className="w-9 h-9 rounded-lg bg-[var(--card-bg)] border border-[var(--border)] hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center justify-center transition-colors"
+            className="w-9 h-9 rounded-lg bg-[var(--card-bg)] border border-[var(--border)] hover:bg-[var(--card-bg-hover)] flex items-center justify-center transition-colors duration-[var(--transition-base)]"
             aria-label="Settimana successiva"
           >
             <svg className="w-5 h-5 text-[var(--text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -147,17 +148,15 @@ export default function WeeklyScheduleView() {
             Programmazione Settimanale
           </h2>
 
-          <select
+          <CustomSelect
             value={weekSchedule.planId}
-            onChange={(e) => handlePlanChange(parseInt(e.target.value))}
-            className="px-4 py-2 bg-gray-100 dark:bg-gray-800 border border-[var(--border)] rounded-lg text-sm text-[var(--text-secondary)] font-medium focus:outline-none focus:ring-2 focus:ring-[var(--primary)] cursor-pointer"
-          >
-            {plans.map((plan) => (
-              <option key={plan.id} value={plan.id}>
-                {plan.name}
-              </option>
-            ))}
-          </select>
+            onChange={(value) => handlePlanChange(Number(value))}
+            options={plans.map((plan) => ({
+              value: plan.id,
+              label: plan.name,
+            }))}
+            className="min-w-[200px]"
+          />
         </div>
 
         {/* Grid giorni della settimana */}

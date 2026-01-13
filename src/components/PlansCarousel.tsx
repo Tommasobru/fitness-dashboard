@@ -52,7 +52,7 @@ export default function PlansCarousel() {
           <button
             onClick={handlePrevious}
             disabled={plans.length <= 1}
-            className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-gray-800 border border-[var(--border)] hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-9 h-9 rounded-lg bg-[var(--card-bg-secondary)] border border-[var(--border)] hover:bg-[var(--card-bg-hover)] flex items-center justify-center transition-colors duration-[var(--transition-base)] disabled:opacity-50 disabled:cursor-not-allowed"
             aria-label="Scheda precedente"
           >
             <svg className="w-5 h-5 text-[var(--text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -64,7 +64,7 @@ export default function PlansCarousel() {
           <button
             onClick={handleNext}
             disabled={plans.length <= 1}
-            className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-gray-800 border border-[var(--border)] hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-9 h-9 rounded-lg bg-[var(--card-bg-secondary)] border border-[var(--border)] hover:bg-[var(--card-bg-hover)] flex items-center justify-center transition-colors duration-[var(--transition-base)] disabled:opacity-50 disabled:cursor-not-allowed"
             aria-label="Scheda successiva"
           >
             <svg className="w-5 h-5 text-[var(--text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -109,10 +109,10 @@ export default function PlansCarousel() {
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
-              className={`h-2 rounded-full transition-all ${
+              className={`h-2 rounded-full transition-all duration-[var(--transition-base)] ${
                 idx === currentIndex
                   ? "w-8 bg-[var(--primary)]"
-                  : "w-2 bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+                  : "w-2 bg-[var(--border)] hover:bg-[var(--border-hover)]"
               }`}
               aria-label={`Vai alla scheda ${idx + 1}`}
             />

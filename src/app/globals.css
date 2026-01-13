@@ -1,21 +1,104 @@
 @import "tailwindcss";
 
 :root {
+  /* Background colors */
   --background: #F8F9FA;
   --foreground: #171717;
   --sidebar-bg: #ffffff;
   --card-bg: #ffffff;
+  --card-bg-secondary: #F9FAFB;
+  --card-bg-hover: #F3F4F6;
+
+  /* Primary colors */
   --primary: #7C3AED;
   --primary-light: #EDE9FE;
   --primary-dark: #5B21B6;
+
+  /* Status colors */
   --success: #10B981;
   --success-light: #D1FAE5;
   --warning: #F59E0B;
   --warning-light: #FEF3C7;
+
+  /* Border colors */
   --border: #E5E7EB;
+  --border-hover: #D1D5DB;
+
+  /* Text colors */
   --text-primary: #1F2937;
   --text-secondary: #6B7280;
   --text-muted: #9CA3AF;
+  --text-link: #7C3AED;
+
+  /* Input/Select colors */
+  --input-bg: #F9FAFB;
+  --input-border: #E5E7EB;
+  --input-text: #1F2937;
+
+  /* Dropdown colors */
+  --dropdown-bg: #ffffff;
+  --dropdown-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --hover-bg: #F3F4F6;
+  --active-bg: #EDE9FE;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-base: 200ms;
+  --transition-slow: 300ms;
+}
+
+[data-theme="dark"] {
+  /* Background colors */
+  --background: #111827;
+  --foreground: #F9FAFB;
+  --sidebar-bg: #1F2937;
+  --card-bg: #1F2937;
+  --card-bg-secondary: #374151;
+  --card-bg-hover: #4B5563;
+
+  /* Primary colors - unchanged */
+  --primary: #7C3AED;
+  --primary-light: #2E1065;
+  --primary-dark: #A78BFA;
+
+  /* Status colors */
+  --success: #10B981;
+  --success-light: #064E3B;
+  --warning: #F59E0B;
+  --warning-light: #78350F;
+
+  /* Border colors */
+  --border: #374151;
+  --border-hover: #4B5563;
+
+  /* Text colors */
+  --text-primary: #F9FAFB;
+  --text-secondary: #D1D5DB;
+  --text-muted: #9CA3AF;
+  --text-link: #A78BFA;
+
+  /* Input/Select colors */
+  --input-bg: #374151;
+  --input-border: #4B5563;
+  --input-text: #F9FAFB;
+
+  /* Dropdown colors */
+  --dropdown-bg: #1F2937;
+  --dropdown-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+  --hover-bg: #4B5563;
+  --active-bg: #2E1065;
+
+  /* Shadows - more pronounced in dark mode */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
 }
 
 @theme inline {
