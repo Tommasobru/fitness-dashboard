@@ -10,16 +10,16 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div>
+    <div className="space-y-6">
       {/* Indicatore allenamento attivo */}
       <ActiveWorkoutIndicator />
 
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-6 md:mb-8">
         <div>
           <h1 className="text-2xl font-bold text-[var(--text-primary)]">
             Ciao, Utente
           </h1>
-          <p className="text-[var(--text-muted)] mt-1">Ecco il riepilogo dei tuoi progressi</p>
+          <p className="text-[var(--text-muted)] mt-1.5">Ecco il riepilogo dei tuoi progressi</p>
         </div>
         <Link
           href="/plans"
@@ -32,7 +32,7 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
         <StatsCard
           title="Allenamenti completati"
           value="12"

@@ -1,0 +1,16 @@
+{
+  "planData": {
+    "name": "Forza Upper Body",
+    "description": "Programma per aumentare la forza massimale nella parte superiore",
+    "trainingType": "forza",
+    "equipment": [
+      "manubri",
+      "bilancieri",
+      "sbarra"
+    ],
+    "daysPerWeek": 4,
+    "weeks": 8,
+    "notes": "Focus su panca piana e trazioni. Attenzione al dolore alla spalla destra - evitare movimenti overhead. Obiettivo: aumentare 1RM panca di 10kg in 8 settimane.",
+    "timestamp": "2026-02-05T10:30:00.000Z"
+  }
+}

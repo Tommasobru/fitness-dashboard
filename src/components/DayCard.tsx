@@ -46,19 +46,19 @@ export default function DayCard({
       </div>
 
       {/* Body */}
-      <div className="flex-1 p-4 flex flex-col items-center justify-center min-h-[120px]">
+      <div className="flex-1 p-3 md:p-4 flex flex-col items-center justify-center min-h-[120px]">
         {workout ? (
           <div className="w-full text-center">
             <div className="mb-3">
-              <div className="w-10 h-10 mx-auto rounded-lg bg-[var(--primary-light)] text-[var(--primary)] flex items-center justify-center mb-2">
+              <div className="w-10 h-10 mx-auto rounded-lg bg-[var(--primary-light)] text-[var(--primary)] flex items-center justify-center mb-2.5">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
               </div>
-              <p className="text-sm font-semibold text-[var(--text-primary)] leading-tight">
+              <p className="text-sm font-semibold text-[var(--text-primary)] leading-tight px-1">
                 {workout.name}
               </p>
-              <p className="text-xs text-[var(--text-muted)] mt-1">
+              <p className="text-xs text-[var(--text-muted)] mt-1.5">
                 {workout.type}
               </p>
             </div>

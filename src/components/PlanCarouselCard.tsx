@@ -22,12 +22,12 @@ export default function PlanCarouselCard({
         : "border-[var(--border)] hover:border-[var(--primary)]/30"
     }`}>
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="font-semibold text-[var(--text-primary)] text-lg">
+      <div className="flex items-center justify-between gap-3 mb-4">
+        <h3 className="font-semibold text-[var(--text-primary)] text-lg flex-1 pr-2">
           {plan.name}
         </h3>
         {plan.active && (
-          <span className="bg-[var(--success-light)] text-[var(--success)] text-xs font-semibold px-2.5 py-1 rounded-full">
+          <span className="bg-[var(--success-light)] text-[var(--success)] text-xs font-semibold px-2.5 py-1 rounded-full flex-shrink-0">
             Attiva
           </span>
         )}

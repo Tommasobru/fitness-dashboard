@@ -37,12 +37,13 @@ export default function ActiveWorkoutIndicator() {
   return (
     <button
       onClick={handleClick}
-      className="fixed top-4 left-4 z-50 w-12 h-12 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center shadow-lg transition-all animate-pulse hover:animate-none"
+      className="fixed top-6 right-6 z-[9999] w-14 h-14 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center shadow-2xl transition-all animate-pulse hover:animate-none cursor-pointer"
+      style={{ pointerEvents: 'auto' }}
       aria-label="Continua allenamento attivo"
       title="Hai un allenamento in corso"
     >
       <svg
-        className="w-6 h-6 text-white"
+        className="w-7 h-7 text-white"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -55,7 +56,7 @@ export default function ActiveWorkoutIndicator() {
         />
       </svg>
       {/* Pulse ring */}
-      <span className="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75 animate-ping" />
+      <span className="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75 animate-ping pointer-events-none" />
     </button>
   );
 }

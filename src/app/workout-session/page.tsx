@@ -128,9 +128,9 @@ export default function WorkoutSessionPage() {
   const progress = calculateProgress(workout);
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto space-y-6">
       {/* Header con freccia indietro */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 md:mb-8">
         <div>
           <button
             onClick={() => router.push("/")}
@@ -144,12 +144,12 @@ export default function WorkoutSessionPage() {
           <h1 className="text-2xl font-bold text-[var(--text-primary)]">
             {workout.name}
           </h1>
-          <p className="text-[var(--text-muted)] mt-1">{workout.planName}</p>
+          <p className="text-[var(--text-muted)] mt-1.5">{workout.planName}</p>
         </div>
       </div>
 
       {/* Barra progresso */}
-      <div className="bg-[var(--card-bg)] rounded-xl p-6 border border-[var(--border)] mb-6">
+      <div className="bg-[var(--card-bg)] rounded-xl p-5 md:p-6 border border-[var(--border)] mb-6">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-medium text-[var(--text-secondary)]">
             Progresso allenamento
@@ -168,7 +168,7 @@ export default function WorkoutSessionPage() {
 
       {/* Timer attivo */}
       {timer !== null && (
-        <div className="bg-[var(--primary)] text-white rounded-xl p-6 mb-6 text-center">
+        <div className="bg-[var(--primary)] text-white rounded-xl p-5 md:p-6 mb-6 text-center">
           <p className="text-sm font-medium mb-2">Riposo in corso</p>
           <p className="text-5xl font-bold">
             {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, "0")}
@@ -186,18 +186,18 @@ export default function WorkoutSessionPage() {
           return (
             <div
               key={exercise.id}
-              className={`bg-[var(--card-bg)] rounded-xl border-2 transition-all ${
+              className={`bg-[var(--card-bg)] rounded-xl border-2 transition-all hover:border-[var(--primary)] hover:shadow-lg ${
                 exerciseComplete
                   ? "border-[var(--success)] bg-[var(--success-light)]/20"
                   : activeExerciseId === exercise.id
-                  ? "border-[var(--primary)]"
+                  ? "border-[var(--primary)] shadow-lg"
                   : "border-[var(--border)]"
               }`}
             >
               {/* Header Esercizio */}
               <button
                 onClick={() => toggleExerciseExpanded(exercise.id)}
-                className="w-full p-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors rounded-xl"
+                className="w-full p-4 md:p-5 flex items-center justify-between transition-colors rounded-xl"
               >
                 <div className="flex items-center gap-4">
                   <div
@@ -240,14 +240,14 @@ export default function WorkoutSessionPage() {
 
               {/* Serie espanse */}
               {exercise.expanded && (
-                <div className="px-5 pb-5 space-y-3 border-t border-[var(--border)] pt-4">
+                <div className="px-4 md:px-5 pb-4 md:pb-5 space-y-3 border-t border-[var(--border)] pt-4 bg-[var(--card-bg)]">
                   {exercise.sets.map((set, setIndex) => (
                     <div
                       key={setIndex}
                       className={`flex items-center gap-3 p-3 rounded-lg ${
                         set.completed
                           ? "bg-[var(--success-light)]/30"
-                          : "bg-gray-50 dark:bg-gray-800/50"
+                          : "bg-[var(--card-bg-secondary)]"
                       }`}
                     >
                       {/* Numero serie */}
@@ -269,7 +269,7 @@ export default function WorkoutSessionPage() {
                               })
                             }
                             disabled={set.completed}
-                            className="w-full px-3 py-2 pr-10 bg-white dark:bg-gray-900 border border-[var(--border)] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)] disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full px-3 py-2 pr-10 bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)] disabled:opacity-50 disabled:cursor-not-allowed"
                           />
                           <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[var(--text-muted)]">
                             kg
@@ -290,7 +290,7 @@ export default function WorkoutSessionPage() {
                             })
                           }
                           disabled={set.completed}
-                          className="w-full px-3 py-2 bg-white dark:bg-gray-900 border border-[var(--border)] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)] disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="w-full px-3 py-2 bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)] disabled:opacity-50 disabled:cursor-not-allowed"
                         />
                       </div>
 
@@ -300,7 +300,7 @@ export default function WorkoutSessionPage() {
                         className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all flex-shrink-0 ${
                           set.completed
                             ? "bg-[var(--success)] border-[var(--success)]"
-                            : "border-gray-300 dark:border-gray-600 hover:border-[var(--primary)]"
+                            : "border-[var(--border)] hover:border-[var(--primary)]"
                         }`}
                         aria-label="Segna serie come completata"
                       >
@@ -335,16 +335,12 @@ export default function WorkoutSessionPage() {
       </div>
 
       {/* Pulsante Termina Allenamento */}
-      <div className="sticky bottom-0 pb-6 pt-4 bg-gradient-to-t from-white dark:from-gray-900 via-white dark:via-gray-900">
+      <div className="sticky bottom-0 pb-6 pt-4 bg-gradient-to-t from-[var(--background)] via-[var(--background)]">
         <button
           onClick={handleFinishWorkout}
-          className={`w-full py-4 rounded-xl font-semibold text-lg transition-colors shadow-lg ${
-            progress === 100
-              ? "bg-[var(--success)] hover:bg-[var(--success-dark)] text-white"
-              : "bg-red-500 hover:bg-red-600 text-white"
-          }`}
+          className="w-full py-3 rounded-lg text-sm font-medium transition-colors bg-red-500 hover:bg-red-600 text-white"
         >
-          {progress === 100 ? "Completa allenamento" : "Termina allenamento"}
+          Termina allenamento
         </button>
       </div>
     </div>

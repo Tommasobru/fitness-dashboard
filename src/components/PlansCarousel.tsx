@@ -41,9 +41,9 @@ export default function PlansCarousel() {
       ];
 
   return (
-    <div className="bg-[var(--card-bg)] rounded-xl p-6 border border-[var(--border)]">
+    <div className="bg-[var(--card-bg)] rounded-xl p-5 md:p-6 border border-[var(--border)]">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-5 md:mb-6">
         <h2 className="text-lg font-semibold text-[var(--text-primary)]">
           Schede Attive
         </h2>

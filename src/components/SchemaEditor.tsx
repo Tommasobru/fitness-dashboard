@@ -18,6 +18,11 @@ export interface Plan {
   weeks: number;
   daysPerWeek: number;
   exercises: Exercise[];
+  // Nuovi campi per gestione avanzata
+  active?: boolean;
+  trainingType?: 'ipertrofia' | 'forza' | 'resistenza';
+  equipment?: string[];
+  notes?: string;
 }
 
 interface SchemaEditorProps {
@@ -56,9 +61,9 @@ export default function SchemaEditor({ plan, onSave }: SchemaEditorProps) {
   };
 
   return (
-    <div>
+    <div className="space-y-6">
       <div className="mb-6">
-        <div className="flex items-center gap-4 mb-2">
+        <div className="flex items-center gap-4 mb-3">
           <span className="text-sm text-[var(--text-muted)]">{plan.weeks} settimane</span>
           <span className="text-sm text-[var(--text-muted)]">{plan.daysPerWeek}x/settimana</span>
         </div>
@@ -79,7 +84,7 @@ export default function SchemaEditor({ plan, onSave }: SchemaEditorProps) {
       </div>
 
       <div className="bg-[var(--background)] rounded-xl border border-[var(--border)] overflow-hidden">
-        <div className="grid grid-cols-12 gap-4 p-4 bg-gray-50 dark:bg-gray-800/50 text-sm font-medium text-[var(--text-muted)] border-b border-[var(--border)]">
+        <div className="grid grid-cols-12 gap-4 px-4 md:px-6 py-4 bg-gray-50 dark:bg-gray-800/50 text-sm font-medium text-[var(--text-muted)] border-b border-[var(--border)]">
           <div className="col-span-4">Esercizio</div>
           <div className="col-span-2 text-center">Serie</div>
           <div className="col-span-2 text-center">Ripetizioni</div>
@@ -91,7 +96,7 @@ export default function SchemaEditor({ plan, onSave }: SchemaEditorProps) {
           {exercises.map((exercise) => (
             <div
               key={exercise.id}
-              className="grid grid-cols-12 gap-4 p-4 items-center hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors"
+              className="grid grid-cols-12 gap-4 px-4 md:px-6 py-4 items-center hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors"
             >
               <div className="col-span-4">
                 {editingId === exercise.id ? (
@@ -99,7 +104,7 @@ export default function SchemaEditor({ plan, onSave }: SchemaEditorProps) {
                     type="text"
                     value={exercise.name}
                     onChange={(e) => handleExerciseChange(exercise.id, "name", e.target.value)}
-                    className="w-full px-3 py-1.5 bg-white dark:bg-gray-800 border border-[var(--border)] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                    className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-[var(--border)] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                   />
                 ) : (
                   <span className="text-[var(--text-primary)] font-medium">{exercise.name}</span>
@@ -111,7 +116,7 @@ export default function SchemaEditor({ plan, onSave }: SchemaEditorProps) {
                     type="number"
                     value={exercise.sets}
                     onChange={(e) => handleExerciseChange(exercise.id, "sets", parseInt(e.target.value))}
-                    className="w-full px-3 py-1.5 bg-white dark:bg-gray-800 border border-[var(--border)] rounded-lg text-sm text-center focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                    className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-[var(--border)] rounded-lg text-sm text-center focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                   />
                 ) : (
                   <span className="text-[var(--text-secondary)]">{exercise.sets} serie</span>
@@ -123,7 +128,7 @@ export default function SchemaEditor({ plan, onSave }: SchemaEditorProps) {
                     type="text"
                     value={exercise.reps}
                     onChange={(e) => handleExerciseChange(exercise.id, "reps", e.target.value)}
-                    className="w-full px-3 py-1.5 bg-white dark:bg-gray-800 border border-[var(--border)] rounded-lg text-sm text-center focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                    className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-[var(--border)] rounded-lg text-sm text-center focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                   />
                 ) : (
                   <span className="text-[var(--text-secondary)]">{exercise.reps}</span>
@@ -135,7 +140,7 @@ export default function SchemaEditor({ plan, onSave }: SchemaEditorProps) {
                     type="text"
                     value={exercise.weight}
                     onChange={(e) => handleExerciseChange(exercise.id, "weight", e.target.value)}
-                    className="w-full px-3 py-1.5 bg-white dark:bg-gray-800 border border-[var(--border)] rounded-lg text-sm text-center focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                    className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-[var(--border)] rounded-lg text-sm text-center focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                   />
                 ) : (
                   <span className="text-[var(--text-secondary)]">{exercise.weight}</span>

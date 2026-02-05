@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# python
+scripts/python/**/__pycache__/
+scripts/python/**/*.pyc
+scripts/python/**/*.pyo
+scripts/python/**/*.pyd
+scripts/python/.Python
+scripts/python/venv/
+scripts/python/env/
+scripts/python/.venv/
+
+# data exports (JSON files generati dal form)
+data/exports/*.json
+!data/exports/.gitkeep
+!data/exports/example_plan.json

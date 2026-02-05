@@ -112,13 +112,13 @@ export default function HistoryPage() {
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-8">
+    <div className="space-y-6">
+      <div className="flex items-center justify-between mb-6 md:mb-8">
         <div>
           <h1 className="text-2xl font-bold text-[var(--text-primary)]">
             Storico Allenamenti
           </h1>
-          <p className="text-[var(--text-muted)] mt-1">
+          <p className="text-[var(--text-muted)] mt-1.5">
             Tutti gli allenamenti completati
           </p>
         </div>
@@ -188,10 +188,10 @@ function WorkoutCard({
   formatDuration: (minutes: number) => string;
 }) {
   return (
-    <div className="bg-[var(--card-bg)] rounded-xl p-6 border border-[var(--border)] hover:border-[var(--primary)]/30 hover:shadow-md transition-all">
+    <div className="bg-[var(--card-bg)] rounded-xl p-5 md:p-6 border border-[var(--border)] hover:border-[var(--primary)]/30 hover:shadow-md transition-all">
       <div className="flex items-start justify-between">
         <div className="flex-1">
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-3 mb-3">
             <span className="text-lg font-semibold text-[var(--text-primary)]">
               {workout.planName}
             </span>

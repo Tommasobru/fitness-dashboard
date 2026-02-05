@@ -70,7 +70,7 @@ export default function WorkoutSelector({
             </div>
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center justify-center transition-colors"
+              className="w-8 h-8 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 flex items-center justify-center transition-colors"
               aria-label="Chiudi"
             >
               <svg className="w-5 h-5 text-[var(--text-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -104,11 +104,11 @@ export default function WorkoutSelector({
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                         </svg>
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-1 min-w-0 pr-2">
                         <p className="font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary)] transition-colors">
                           {workout.name}
                         </p>
-                        <p className="text-sm text-[var(--text-muted)] mt-0.5">
+                        <p className="text-sm text-[var(--text-muted)] mt-1">
                           {workout.type} • {workout.exercises?.length || 0} esercizi
                         </p>
                       </div>
@@ -126,7 +126,7 @@ export default function WorkoutSelector({
           <div className="px-6 py-4 border-t border-[var(--border)]">
             <button
               onClick={onClose}
-              className="w-full py-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-[var(--text-secondary)] font-medium transition-colors"
+              className="w-full py-2.5 rounded-lg bg-gray-100 dark:bg-gray-700/50 hover:bg-gray-200 dark:hover:bg-gray-700 text-[var(--text-primary)] font-medium transition-colors"
             >
               Annulla
             </button>

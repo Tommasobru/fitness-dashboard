@@ -1,15 +1,15 @@
 export default function ProgressPage() {
   return (
-    <div>
-      <div className="mb-8">
+    <div className="space-y-6">
+      <div className="mb-6 md:mb-8">
         <h1 className="text-2xl font-bold text-[var(--text-primary)]">
           Progressi
         </h1>
-        <p className="text-[var(--text-muted)] mt-1">Monitora i tuoi miglioramenti nel tempo</p>
+        <p className="text-[var(--text-muted)] mt-1.5">Monitora i tuoi miglioramenti nel tempo</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        <div className="bg-[var(--card-bg)] rounded-xl p-6 border border-[var(--border)]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-6">
+        <div className="bg-[var(--card-bg)] rounded-xl p-5 md:p-6 border border-[var(--border)]">
           <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-4">
             Riepilogo mensile
           </h2>
@@ -41,7 +41,7 @@ export default function ProgressPage() {
           </div>
         </div>
 
-        <div className="bg-[var(--card-bg)] rounded-xl p-6 border border-[var(--border)]">
+        <div className="bg-[var(--card-bg)] rounded-xl p-5 md:p-6 border border-[var(--border)]">
           <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-4">
             Record personali recenti
           </h2>
@@ -68,7 +68,7 @@ export default function ProgressPage() {
         </div>
       </div>
 
-      <div className="bg-[var(--card-bg)] rounded-xl p-6 border border-[var(--border)]">
+      <div className="bg-[var(--card-bg)] rounded-xl p-5 md:p-6 border border-[var(--border)]">
         <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-4">
           Storico misurazioni
         </h2>
@@ -76,16 +76,16 @@ export default function ProgressPage() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-[var(--border)]">
-                <th className="text-left py-3 px-4 font-medium text-[var(--text-muted)]">
+                <th className="text-left py-4 px-4 md:px-6 font-medium text-[var(--text-muted)]">
                   Data
                 </th>
-                <th className="text-left py-3 px-4 font-medium text-[var(--text-muted)]">
+                <th className="text-left py-4 px-4 md:px-6 font-medium text-[var(--text-muted)]">
                   Peso
                 </th>
-                <th className="text-left py-3 px-4 font-medium text-[var(--text-muted)]">
+                <th className="text-left py-4 px-4 md:px-6 font-medium text-[var(--text-muted)]">
                   Massa grassa
                 </th>
-                <th className="text-left py-3 px-4 font-medium text-[var(--text-muted)]">
+                <th className="text-left py-4 px-4 md:px-6 font-medium text-[var(--text-muted)]">
                   Massa muscolare
                 </th>
               </tr>
@@ -168,10 +168,10 @@ function MeasurementRow({
 }) {
   return (
     <tr className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-      <td className="py-3 px-4 text-[var(--text-primary)]">{date}</td>
-      <td className="py-3 px-4 text-[var(--text-secondary)]">{weight}</td>
-      <td className="py-3 px-4 text-[var(--text-secondary)]">{bodyFat}</td>
-      <td className="py-3 px-4 text-[var(--text-secondary)]">{muscleMass}</td>
+      <td className="py-4 px-4 md:px-6 text-[var(--text-primary)]">{date}</td>
+      <td className="py-4 px-4 md:px-6 text-[var(--text-secondary)]">{weight}</td>
+      <td className="py-4 px-4 md:px-6 text-[var(--text-secondary)]">{bodyFat}</td>
+      <td className="py-4 px-4 md:px-6 text-[var(--text-secondary)]">{muscleMass}</td>
     </tr>
   );
 }

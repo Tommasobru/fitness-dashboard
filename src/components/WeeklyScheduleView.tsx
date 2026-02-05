@@ -24,9 +24,10 @@ export default function WeeklyScheduleView() {
 
   // Carica la programmazione della settimana
   useEffect(() => {
-    const schedule = getWeekSchedule(weekOffset, plans[0]?.id || 1);
+    const activePlans = getActivePlans();
+    const schedule = getWeekSchedule(weekOffset, activePlans[0]?.id || 1);
     setWeekSchedule(schedule);
-  }, [weekOffset, plans]);
+  }, [weekOffset]);
 
   // Handler per cambiare settimana
   const handlePreviousWeek = () => {
@@ -96,9 +97,9 @@ export default function WeeklyScheduleView() {
   const weekRange = formatWeekRange(weekOffset);
 
   return (
-    <div>
+    <div className="space-y-4">
       {/* Selettore Settimana (fuori dal riquadro) */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-4 md:mb-6">
         <div className="flex items-center gap-3">
           <button
             onClick={handlePreviousWeek}
@@ -143,7 +144,7 @@ export default function WeeklyScheduleView() {
       {/* Riquadro principale */}
       <div className="bg-[var(--card-bg)] rounded-xl border border-[var(--border)] overflow-hidden">
         {/* Header con selettore scheda */}
-        <div className="px-6 py-4 border-b border-[var(--border)] flex items-center justify-between">
+        <div className="px-4 md:px-6 py-4 md:py-5 border-b border-[var(--border)] flex items-center justify-between">
           <h2 className="text-lg font-semibold text-[var(--text-primary)]">
             Programmazione Settimanale
           </h2>
@@ -160,8 +161,8 @@ export default function WeeklyScheduleView() {
         </div>
 
         {/* Grid giorni della settimana */}
-        <div className="p-6">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+        <div className="p-4 md:p-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2 md:gap-3">
             {weekSchedule.schedule.map((day) => (
               <DayCard
                 key={day.date}

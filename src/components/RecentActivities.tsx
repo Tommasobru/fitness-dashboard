@@ -34,9 +34,9 @@ export default function RecentActivities() {
   const activities = getRecentActivities(5);
 
   return (
-    <div className="bg-[var(--card-bg)] rounded-xl p-6 border border-[var(--border)]">
+    <div className="bg-[var(--card-bg)] rounded-xl p-5 md:p-6 border border-[var(--border)]">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-5 md:mb-6">
         <h2 className="text-lg font-semibold text-[var(--text-primary)]">
           Attività Recenti
         </h2>
@@ -60,24 +60,24 @@ export default function RecentActivities() {
 
 function ActivityItem({ activity }: { activity: Activity }) {
   return (
-    <div className="flex items-start gap-3">
+    <div className="flex items-start gap-3 md:gap-4 justify-between">
       {/* Icona */}
       <div className={`w-8 h-8 rounded-lg ${activity.iconBg} ${activity.iconColor} flex items-center justify-center flex-shrink-0`}>
         {getActivityIconSvg(activity.icon)}
       </div>
 
       {/* Contenuto */}
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 pr-4 md:pr-6">
         <p className="text-sm font-medium text-[var(--text-primary)]">
           {activity.title}
         </p>
-        <p className="text-xs text-[var(--text-muted)]">
+        <p className="text-xs text-[var(--text-muted)] mt-0.5">
           {activity.description}
         </p>
       </div>
 
       {/* Timestamp */}
-      <span className="text-xs text-[var(--text-muted)] flex-shrink-0">
+      <span className="text-xs text-[var(--text-muted)] flex-shrink-0 whitespace-nowrap ml-2 md:ml-3">
         {activity.timestamp}
       </span>
     </div>

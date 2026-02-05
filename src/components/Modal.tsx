@@ -35,7 +35,7 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
         onClick={onClose}
       />
       <div className="relative w-full max-w-4xl max-h-[90vh] bg-[var(--card-bg)] rounded-2xl shadow-2xl overflow-hidden mx-4">
-        <div className="flex items-center justify-between p-6 border-b border-[var(--border)]">
+        <div className="flex items-center justify-between px-5 md:px-6 py-5 md:py-6 border-b border-[var(--border)]">
           <h2 className="text-xl font-semibold text-[var(--text-primary)]">{title}</h2>
           <button
             onClick={onClose}
@@ -46,7 +46,7 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
             </svg>
           </button>
         </div>
-        <div className="p-6 overflow-y-auto max-h-[calc(90vh-80px)]">
+        <div className="p-5 md:p-6 overflow-y-auto max-h-[calc(90vh-80px)]">
           {children}
         </div>
       </div>
