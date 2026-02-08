@@ -1,0 +1,93 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model WorkoutPlan {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  duration    Int      // durata in settimane
+  level       String   // beginner, intermediate, advanced
+  goal        String   // strength, hypertrophy, endurance
+  jsonData    Json     // dati completi del JSON originale
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  workouts    Workout[]
+  sessions    WorkoutSession[]
+
+  @@map("workout_plans")
+}
+
+model Workout {
+  id          String   @id @default(uuid())
+  planId      String   @map("plan_id")
+  dayNumber   Int      @map("day_number") // giorno nella settimana (1-7)
+  name        String
+  description String?
+
+  plan        WorkoutPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+  exercises   Exercise[]
+
+  @@unique([planId, dayNumber])
+  @@map("workouts")
+}
+
+model Exercise {
+  id          String   @id @default(uuid())
+  workoutId   String   @map("workout_id")
+  name        String
+  sets        Int
+  reps        String   // può essere "8-12" o "10"
+  restSeconds Int      @map("rest_seconds")
+  notes       String?
+  order       Int      // ordine nell'allenamento
+
+  workout     Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  logs        ExerciseLog[]
+
+  @@map("exercises")
+}
+
+model WorkoutSession {
+  id          String   @id @default(uuid())
+  planId      String?  @map("plan_id")
+  date        DateTime @default(now())
+  duration    Int?     // durata in minuti
+  notes       String?
+  completed   Boolean  @default(true)
+
+  plan        WorkoutPlan? @relation(fields: [planId], references: [id])
+  exerciseLogs ExerciseLog[]
+
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("workout_sessions")
+}
+
+model ExerciseLog {
+  id           String   @id @default(uuid())
+  sessionId    String   @map("session_id")
+  exerciseId   String?  @map("exercise_id") // riferimento all'esercizio nella scheda (opzionale)
+  exerciseName String   @map("exercise_name") // nome dell'esercizio
+  setNumber    Int      @map("set_number") // numero della serie
+  reps         Int      // ripetizioni effettuate
+  weight       Float    // peso utilizzato (kg)
+  rpe          Int?     // Rate of Perceived Exertion (1-10)
+  notes        String?
+
+  session     WorkoutSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  exercise    Exercise? @relation(fields: [exerciseId], references: [id])
+
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("exercise_logs")
+}

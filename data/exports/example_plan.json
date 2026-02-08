@@ -1,16 +1,139 @@
 {
-  "planData": {
-    "name": "Forza Upper Body",
-    "description": "Programma per aumentare la forza massimale nella parte superiore",
-    "trainingType": "forza",
-    "equipment": [
-      "manubri",
-      "bilancieri",
-      "sbarra"
-    ],
-    "daysPerWeek": 4,
-    "weeks": 8,
-    "notes": "Focus su panca piana e trazioni. Attenzione al dolore alla spalla destra - evitare movimenti overhead. Obiettivo: aumentare 1RM panca di 10kg in 8 settimane.",
-    "timestamp": "2026-02-05T10:30:00.000Z"
-  }
+  "name": "PPL - Push Pull Legs",
+  "description": "Programma 6 giorni settimanali per ipertrofia muscolare. Suddiviso in Push (spinta), Pull (tirata) e Legs (gambe).",
+  "duration": 12,
+  "level": "intermediate",
+  "goal": "hypertrophy",
+  "workouts": [
+    {
+      "dayNumber": 1,
+      "name": "Push A - Petto e Spalle",
+      "description": "Focus su petto, spalle anteriori e tricipiti",
+      "exercises": [
+        {
+          "name": "Panca Piana Bilanciere",
+          "sets": 4,
+          "reps": "8-10",
+          "restSeconds": 120,
+          "notes": "Movimento controllato, massima attivazione pettorale",
+          "order": 1
+        },
+        {
+          "name": "Shoulder Press Manubri",
+          "sets": 3,
+          "reps": "10-12",
+          "restSeconds": 90,
+          "order": 2
+        },
+        {
+          "name": "Panca Inclinata Manubri",
+          "sets": 3,
+          "reps": "10-12",
+          "restSeconds": 90,
+          "order": 3
+        },
+        {
+          "name": "Alzate Laterali",
+          "sets": 3,
+          "reps": "12-15",
+          "restSeconds": 60,
+          "order": 4
+        },
+        {
+          "name": "French Press",
+          "sets": 3,
+          "reps": "10-12",
+          "restSeconds": 60,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "dayNumber": 2,
+      "name": "Pull A - Schiena e Bicipiti",
+      "description": "Focus su dorso, trapezi e bicipiti",
+      "exercises": [
+        {
+          "name": "Trazioni alla Sbarra",
+          "sets": 4,
+          "reps": "8-10",
+          "restSeconds": 120,
+          "notes": "Se necessario usare elastico di assistenza",
+          "order": 1
+        },
+        {
+          "name": "Rematore con Bilanciere",
+          "sets": 4,
+          "reps": "8-10",
+          "restSeconds": 90,
+          "order": 2
+        },
+        {
+          "name": "Lat Machine Presa Neutra",
+          "sets": 3,
+          "reps": "10-12",
+          "restSeconds": 90,
+          "order": 3
+        },
+        {
+          "name": "Curl Bilanciere",
+          "sets": 3,
+          "reps": "10-12",
+          "restSeconds": 60,
+          "order": 4
+        },
+        {
+          "name": "Face Pull",
+          "sets": 3,
+          "reps": "15-20",
+          "restSeconds": 60,
+          "notes": "Focus su deltoidi posteriori",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "dayNumber": 3,
+      "name": "Legs A - Quadricipiti Focus",
+      "description": "Focus su quadricipiti, glutei e polpacci",
+      "exercises": [
+        {
+          "name": "Squat",
+          "sets": 4,
+          "reps": "8-10",
+          "restSeconds": 180,
+          "notes": "Scendere almeno parallelo",
+          "order": 1
+        },
+        {
+          "name": "Leg Press",
+          "sets": 3,
+          "reps": "12-15",
+          "restSeconds": 120,
+          "order": 2
+        },
+        {
+          "name": "Leg Extension",
+          "sets": 3,
+          "reps": "12-15",
+          "restSeconds": 90,
+          "order": 3
+        },
+        {
+          "name": "Leg Curl",
+          "sets": 3,
+          "reps": "12-15",
+          "restSeconds": 90,
+          "order": 4
+        },
+        {
+          "name": "Calf Raises",
+          "sets": 4,
+          "reps": "15-20",
+          "restSeconds": 60,
+          "order": 5
+        }
+      ]
+    }
+  ]
 }
